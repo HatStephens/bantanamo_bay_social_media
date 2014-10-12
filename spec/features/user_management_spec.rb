@@ -31,3 +31,17 @@ feature "User signs up" do
 	end
 
 end
+
+feature "User signs in" do
+
+	before(:each) do
+		User.create(email: "test@test.com", username: "test", name: "Test Test", password: "testing", password_confirmation: "testing")
+	end
+
+	scenario "with correct credentials" do
+		visit '/'
+		expect(page).not_to have_content("Welcome, test")
+		sign_in("test", "testing")
+		expect(page).to have_content("Welcome, test")
+	end
+end

@@ -34,3 +34,20 @@ post '/users' do
 	end
 end
 
+get '/sessions/new' do
+	erb :"sessions/new"
+end
+
+post '/sessions' do
+	username = params[:username]
+	password = params[:password]
+	user = User.authenticate(username, password)
+	if user
+		session[:user_id] = user.id
+		redirect to '/'
+	else
+		flash[:errors] = ["Your username or password do not match, please try again."]
+		erb :"sessions/new"
+	end
+end
+
