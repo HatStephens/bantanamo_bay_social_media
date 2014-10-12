@@ -7,6 +7,3 @@ DataMapper.setup(:default, "postgres://localhost/bantanamo_bay_#{env}")
 
 
 DataMapper.finalize
-
-
-DataMapper.auto_upgrade!
