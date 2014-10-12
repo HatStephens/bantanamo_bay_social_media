@@ -35,7 +35,7 @@ end
 feature "User signs in" do
 
 	before(:each) do
-		User.create(email: "test@test.com", username: "test", name: "Test Test", password: "testing", password_confirmation: "testing")
+		User.create(email: 'test@test.com', name: 'Test Test', username: 'test', password: 'testing', password_confirmation: 'testing')
 	end
 
 	scenario "with correct credentials" do
@@ -43,5 +43,25 @@ feature "User signs in" do
 		expect(page).not_to have_content("Welcome, test")
 		sign_in("test", "testing")
 		expect(page).to have_content("Welcome, test")
+	end
+
+	scenario "with incorrect credentials" do
+		visit '/'
+		expect(page).not_to have_content("Welcome, test")
+		sign_in("test", "wrong")
+		expect(page).not_to have_content("Welcome, test")
+	end
+end
+
+feature "User signs out" do
+	before(:each) do
+		User.create(email: "test@test.com", password: "testing", password_confirmation: "testing", username: "test", name: "Test Test")
+	end
+
+	scenario 'while being signed in' do
+		sign_in('test', 'testing')
+		click_button "Sign Out"
+		expect(page).to have_content("Goodbye! Enjoy your Whiskey and Wings responsibly.")
+		expect(page).not_to have_content("Welcome, test")
 	end
 end

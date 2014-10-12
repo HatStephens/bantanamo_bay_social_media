@@ -1,0 +1,27 @@
+<nav id='user-links'>
+		
+			<a href='/users/new' id='sign-up' class='button'>Sign up</a>
+			<a href='/sessions/new' id='sign-in' class='button'>Sign in</a>
+		
+</nav>
+<body>
+	
+	
+	  Sorry, there were the following problem with the form:
+	  <ul id='errors'>
+	  	
+	  		<li>Your username or password do not match, please try again.</li>
+			
+		</ul>
+	
+	
+  <h3>Please sign in:</h3>
+
+<form method='post' action='/sessions'>
+	Username: <input type='text' name='username'>
+	Password: <input type='password' name='password'>
+	<input type='submit' value='Sign In'>
+</form>
+
+<p>will put a forgot password section here...</p>
+</body>

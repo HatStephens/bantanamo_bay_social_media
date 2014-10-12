@@ -51,3 +51,14 @@ post '/sessions' do
 	end
 end
 
+delete '/sessions' do
+	flash[:notice] = "Goodbye! Enjoy your Whiskey and Wings responsibly."
+  session[:user_id] = nil
+  redirect to('/')
+end
+
+gets '/bants/new' do
+	
+	erb :"bants/new"
+end
+

@@ -1,4 +1,22 @@
+<nav id='user-links'>
+		<% if current_user %>
+			<h4>Welcome, <%= current_user.username %></h4>
+			<p><a href='/bants/new' id='new_bant' class='button highlighted'>Post a Bant</a></p>
+			<form  id='sign-out' method='post' action='/sessions'>
+				<input type='hidden' name='_method' value='delete'>
+				<input type='submit' value='Sign Out' class='button'>
+			</form>
+		<% else %>
+			<a href='/users/new' id='sign-up' class='button'>Sign up</a>
+			<a href='/sessions/new' id='sign-in' class='button'>Sign in</a>
+		<% end %>
+</nav>
 <body>
+	<% if flash[:notice] %>
+		<section id='flash notice'>
+			<%= flash[:notice] %>
+		</section>
+	<% end %>
 	<% if flash[:errors] && !flash[:errors].empty? %>
 	  Sorry, there were the following problem with the form:
 	  <ul id='errors'>
@@ -8,8 +26,5 @@
 		</ul>
 	<% end %>
 	
-  <% if current_user %>
-    Welcome, <%= current_user.username %>
-  <% end %>
   <%= yield %>
 </body>
