@@ -4,6 +4,8 @@ require './app/server'
 require 'database_cleaner'
 require 'capybara/rspec'
 
+Capybara.app = Sinatra::Application.new
+
 RSpec.configure do |config|
 
   config.before(:suite) do
