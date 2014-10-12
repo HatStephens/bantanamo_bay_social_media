@@ -2,5 +2,8 @@
 <ul id="bants">
 	<% @bants.each do |bant| %>
 		<li> <%= bant[:content] %> </li>
+		<li> <%= bant[:length] %> </li>
+		<li> <%= bant[:user] %></li>
+		<li>********************</li>
 	<% end %>
 </ul>

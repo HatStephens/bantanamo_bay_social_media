@@ -27,6 +27,7 @@ post '/users' do
 	
 	if @user.save
 		session[:user_id] = @user.id
+		session[:username] = @user.username
 		redirect to '/'
 	else
 		flash.now[:errors] = @user.errors.full_messages
@@ -57,8 +58,16 @@ delete '/sessions' do
   redirect to('/')
 end
 
-gets '/bants/new' do
+get '/bants/new' do
 	
 	erb :"bants/new"
+end
+
+post '/bants' do
+	content = params[:content]
+	length = content.length
+	user = session[:username]
+	Bant.create(content: content, length: length, user: user)
+	redirect '/'
 end
 
