@@ -1,9 +1,11 @@
 
-<ul id="bants">
 	<% @bants.each do |bant| %>
-		<li> <%= bant[:content] %> </li>
-		<li> <%= bant[:length] %> </li>
-		<li> <%= bant[:user] %></li>
-		<li>********************</li>
+	<article id="bants">
+		<p><%= bant[:content] %></p>
+		<aside> 
+		<p>Length: <%= bant[:length] %> </li></p>
+		<p>By: <%= bant[:user] %></li></p>
+		<p>Posted on: <%= bant[:date] %></li></p>
+		</aside>
+	</article>
 	<% end %>
-</ul>

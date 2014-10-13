@@ -67,7 +67,9 @@ post '/bants' do
 	content = params[:content]
 	length = content.length
 	user = session[:username]
-	Bant.create(content: content, length: length, user: user)
+	time = Time.new
+	time_nice = time.strftime("%d/%m/%Y at %I:%M%p")
+	Bant.create(content: content, length: length, user: user, date: time_nice)
 	redirect '/'
 end
 
