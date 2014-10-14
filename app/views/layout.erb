@@ -1,17 +1,18 @@
-<nav id='user-links'>
-		<% if current_user %>
-			<h4>Welcome, <%= current_user.username %></h4>
-			<p><a href='/bants/new' id='new_bant' class='button highlighted'>Post a Bant</a></p>
-			<form  id='sign-out' method='post' action='/sessions'>
-				<input type='hidden' name='_method' value='delete'>
-				<input type='submit' value='Sign Out' class='button'>
-			</form>
-		<% else %>
-			<a href='/users/new' id='sign-up' class='button'>Sign up</a>
-			<a href='/sessions/new' id='sign-in' class='button'>Sign in</a>
-		<% end %>
-</nav>
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Bantanamo Bay - Whiskey and Wings generated Banter</title>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/css/reset.css">  
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">  
+</head>
+
 <body>
+<%= partial :header %>
+<section>
 	<% if flash[:notice] %>
 		<section id='flash notice'>
 			<%= flash[:notice] %>
@@ -27,4 +28,5 @@
 	<% end %>
 	
   <%= yield %>
+  </section>
 </body>

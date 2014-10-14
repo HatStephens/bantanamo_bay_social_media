@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'data_mapper'
 require 'rack-flash'
+require 'date'
+require 'sinatra/partial'
 
 require_relative 'data_mapper_setup'
 require_relative 'helpers/application'
@@ -10,7 +12,10 @@ require_relative 'models/user'
 
 enable :sessions
 set :session_secret, 'super secret'
+set :public_folder, 'public'
 use Rack::Flash
+set :partial_template_engine, :erb
+
 
 get '/' do
 	@bants = Bant.all
@@ -67,9 +72,8 @@ post '/bants' do
 	content = params[:content]
 	length = content.length
 	user = session[:username]
-	time = Time.new
-	time_nice = time.strftime("%d/%m/%Y at %I:%M%p")
-	Bant.create(content: content, length: length, user: user, date: time_nice)
+	# time_nice = time.strftime("%d/%m/%Y at %I:%M%p")
+	Bant.create(content: content, length: length, user: user)
 	redirect '/'
 end
 

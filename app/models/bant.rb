@@ -1,3 +1,4 @@
+require 'dm-timestamps'
 
 class Bant
 
@@ -6,7 +7,8 @@ class Bant
 	property :id,						Serial
 	property :content,			String, length: 160
 	property :length,				Integer
-	property :date,					String
+	property :created_at,		DateTime
+	property :time,					Time
 	property :user,					String
 
 end

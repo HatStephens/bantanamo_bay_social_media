@@ -1,0 +1,21 @@
+
+<nav id='user-links'>
+	<a href='/'><img id='logo' src='/images/BB_Master_Imp.png'></a>
+		<% if current_user %>
+		<section class='current-user'>
+			<h4>Welcome, <%= current_user.username %></h4>
+			<p><a href='/bants/new' id='new_bant' class='button'>Post a Bant</a></p>
+		</section>
+		<aside class='current-user'>
+			<form  id='sign-out' method='post' action='/sessions'>
+				<input type='hidden' name='_method' value='delete'>
+				<input type='submit' value='Sign Out' class='button'>
+			</form>
+		</aside>
+		<% else %>
+		<section id='no-user'>
+			<a href='/users/new' id='sign-up' class='button'>Sign up</a>
+			<a href='/sessions/new' id='sign-in' class='button'>Sign in</a>
+		<% end %>
+		</section>
+</nav>

@@ -1,11 +1,16 @@
 
-	<% @bants.each do |bant| %>
-	<article id="bants">
-		<p><%= bant[:content] %></p>
-		<aside> 
-		<p>Length: <%= bant[:length] %> </li></p>
-		<p>By: <%= bant[:user] %></li></p>
-		<p>Posted on: <%= bant[:date] %></li></p>
-		</aside>
-	</article>
+
+	<% @bants.reverse.each do |bant| %>
+		<% @date = bant[:created_at].strftime('%dth %b %Y at %H:%M') %>
+		<article class="bants">
+			<p class="bants"><%= bant[:content] %></p>
+			<a href='/reply' class='button'>Reply to this piece of Banter</a>
+			<aside class="bants"> 
+			<p>By: <%= bant[:user] %></li></p>
+			<p>Posted: <%= @date %></li></p>
+			<p>Length: <%= bant[:length] %> </li></p>
+			</aside>
+		</article>
 	<% end %>
+
+	

@@ -1,0 +1,107 @@
+
+nav {
+	position: relative;	
+	display: flex;
+	height: 120px;
+	border: 1px solid Black;
+}
+
+img #logo {
+	width: 400px;
+	height: 120px;
+}
+
+section.current-user {
+	/*display:flex;*/
+	}
+
+aside.current-user {
+	margin: 10px 10px 10px 50px;
+}
+
+h4 {
+	font-size: 2em;
+	font-family: 'Lobster', cursive;
+	margin: 10px;
+}
+
+.button {
+	display: inline-block;
+	width: 130px;
+	background-color: #000;
+	border: 2px solid white;
+	color: #fff;
+	text-decoration: none;
+	padding: 5px 10px;
+	text-align: center;
+	border-radius: 4px;
+	margin-left: 5px;
+	margin-right: 5px;
+	text-shadow: 0 0 4px rgba(0,0,0, 0.4);
+	box-shadow: 0 0 10px rgba(0,0,0,0.8);
+	font-size: 1em;
+	cursor: pointer;
+	font-family: 'lobster', cursive;
+}
+
+body {
+	min-width: 600px;
+	max-width: 900px;
+	margin: 0px auto;
+}
+
+article.bants{
+	font-family: 'Cabin', sans-serif;
+	border: 1px dashed black;
+	margin: 5px;
+	padding: 10px;
+	display: flex; 
+}
+
+article > p {
+	color: red;
+	width: 400px;
+}
+
+aside.bants {
+	margin: 0px 0px 0px 60px;
+}
+
+header.new-user > h1 {
+	width: 400px;
+	margin: 10px auto;
+	font-family: 'Lobster', cursive;
+}
+
+section.new-user {
+	width: 400px;
+	font-family: 'Cabin', sans-serif;
+}
+
+header.signing-in > h1 {
+	width: 400px;
+	margin: 10px auto;
+	font-family: 'Lobster', cursive;
+}
+section.signing-in	 {
+	width: 400px;
+	font-family: 'Cabin', sans-serif;
+}
+
+header.new-bant > h1 {
+	width: 400px;
+	margin: 10px auto;
+	font-family: 'Lobster', cursive;
+	text-align: center;
+}
+section.new-bant	 {
+	width: 400px;
+	font-family: 'Cabin', sans-serif;
+	margin: 10px auto;
+}
+
+input.new-bant {
+	width: 400px;
+	height: 50px;
+	margin: 10px auto;
+}

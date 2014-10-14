@@ -1,10 +1,13 @@
-<section id="new-bant">
-	<h2>Post your new Bant</h2>
+
+<header class='new-bant'>
+	<h1>Post your new Bant</h1>
+</header>
+<section class="new-bant">
 	<form action='/bants' method='post'>
 		<p>
-		<input type='text' name='content' placeholder='You are limited to 160 characters...'>
+		<input type='text' name='content' placeholder='You are limited to 160 characters...' maxlength='160' class='new-bant'><br>
 		</p>
-		<input type='submit' value='Post Bant' class='button'>
+		<input type='submit' value='Post Bant' class='button new-bant'>
 		</p>
 	</form>
 </section>	
