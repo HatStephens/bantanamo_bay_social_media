@@ -13,19 +13,7 @@
 <body>
 <%= partial :header %>
 <section>
-	<% if flash[:notice] %>
-		<section id='flash notice'>
-			<%= flash[:notice] %>
-		</section>
-	<% end %>
-	<% if flash[:errors] && !flash[:errors].empty? %>
-	  Sorry, there were the following problem with the form:
-	  <ul id='errors'>
-	  	<% flash[:errors].each do |error| %>
-	  		<li><%= error %></li>
-			<% end %>
-		</ul>
-	<% end %>
+	<%= partial :errors %>
 	
   <%= yield %>
   </section>

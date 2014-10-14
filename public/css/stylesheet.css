@@ -71,6 +71,8 @@ header.new-user > h1 {
 	width: 400px;
 	margin: 10px auto;
 	font-family: 'Lobster', cursive;
+	font-size: 1.5em;
+
 }
 
 section.new-user {
@@ -82,10 +84,12 @@ header.signing-in > h1 {
 	width: 400px;
 	margin: 10px auto;
 	font-family: 'Lobster', cursive;
+	font-size: 1.5em;
+
 }
 section.signing-in	 {
 	width: 400px;
-	font-family: 'Cabin', sans-serif;
+	font-famly: 'Cabin', sans-serif;
 }
 
 header.new-bant > h1 {
@@ -93,6 +97,7 @@ header.new-bant > h1 {
 	margin: 10px auto;
 	font-family: 'Lobster', cursive;
 	text-align: center;
+	font-size: 1.5em;
 }
 section.new-bant	 {
 	width: 400px;
@@ -104,4 +109,14 @@ input.new-bant {
 	width: 400px;
 	height: 50px;
 	margin: 10px auto;
+}
+
+section.flash-notice {
+	width: 400px;
+	font-family: 'Cabin', sans-serif;	
+	color: red;
+	font-size: 1.2em;
+	margin: 10px auto;
+	border: 1px dashed black;
+	padding: 5px;
 }

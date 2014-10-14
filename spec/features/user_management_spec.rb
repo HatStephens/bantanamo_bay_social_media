@@ -13,7 +13,7 @@ feature "User signs up" do
 	end
 
 	scenario "with a password that doesn't match" do
-		expect{ sign_up("a@a.com", "pass", "wrong", "Nick", "Nick Kent") }.to change(User, :count).by(0)
+		expect{ sign_up("test@test.com", "pass", "wrong", "Nick", "Nick Kent") }.to change(User, :count).by(0)
 		expect(current_path).to eq('/users')
 		expect(page).to have_content("Sorry, your passwords don't match")
 	end
@@ -28,6 +28,18 @@ feature "User signs up" do
 		expect { sign_up }.to change(User, :count).by(1)
 		expect { sign_up }.to change(User, :count).by(0)
 		expect(page).to have_content("This username has already been chosen")
+	end
+
+	scenario "with a username that is blank" do
+		expect { sign_up("a@a.com", "pass", "pass", "", "Nick Kent") }.to change(User, :count).by(0)
+	end
+
+	scenario "with an email address that is not of correct format" do
+			expect { sign_up("a.com", "pass", "pass", "Nick", "Nick Kent") }.to change(User, :count).by(0)
+	end
+
+	scenario "with a blank name" do
+			expect { sign_up("a@a.com", "pass", "pass", "Nick", "") }.to change(User, :count).by(0)
 	end
 
 end
