@@ -9,6 +9,7 @@ class User
 	property :username,		String, unique: true, message: "This username has already been chosen."
 	property :name,				String
 	property :password_digest,		Text
+	property :password_token,			Text
 
 	attr_reader :password
 	attr_accessor :password_confirmation

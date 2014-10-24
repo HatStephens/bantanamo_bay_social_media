@@ -40,6 +40,44 @@ post '/users' do
 	end
 end
 
+get '/users/new_password' do
+	erb :"users/new_password"
+end
+
+post '/users/new_password' do
+	user = User.first(email: params[:email])
+	if user
+		user.update(password_token: (1..64).map{('A'..'Z').to_a.sample}.join)
+		# SEND EMAIL
+		"Check your emails"
+	else
+		# MESSAGE THAT YOU DONT EXIST
+		"You do not exist"
+		# erb :"users/new_password"
+	end
+end
+
+get '/users/reset_password/:password_token' do
+	user = User.first(password_token: params[:password_token])
+	if user
+		@token = params[:password_token]
+		erb :"users/update_password"
+
+	else
+		"Wrong"
+	end
+end
+
+post '/users/reset_password' do
+	user = User.first(password_token: params[:password_token])
+	
+	if user
+		user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+		"Password succesfully changed"
+	end
+end
+
+
 get '/sessions/new' do
 	erb :"sessions/new"
 end
@@ -50,6 +88,7 @@ post '/sessions' do
 	user = User.authenticate(username, password)
 	if user
 		session[:user_id] = user.id
+		session[:username] = user.username
 		redirect to '/'
 	else
 		flash[:errors] = ["Your username or password do not match, please try again."]
@@ -72,7 +111,6 @@ post '/bants' do
 	content = params[:content]
 	length = content.length
 	user = session[:username]
-	# time_nice = time.strftime("%d/%m/%Y at %I:%M%p")
 	Bant.create(content: content, length: length, user: user)
 	redirect '/'
 end
